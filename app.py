@@ -373,7 +373,7 @@ import click
 @click.option("--debug", is_flag=True, default=False, help="Enable debug mode.")
 @click.option("--share", is_flag=True, default=False, help="Enable sharing of the interface.")
 def main(debug, share):
-    demo1 = ui()
+    demo= ui()
     demo.queue().launch(debug=debug, share=share)
     # demo.queue().launch(debug=debug, share=share,server_port=9000)
     #Run on local network
