@@ -71,31 +71,34 @@ def word_split(text, char_limit=300):
         chunks.append(current_chunk)
 
     return chunks
-
 def split_into_chunks(text, max_char_limit=300):
-    splitter = SentenceSplitter(language='en')
-    raw_sentences = splitter.split(text)
+    if len(text)>=300:
+      print("⚠️ The text is too long. Breaking it into smaller pieces so the voice generation works correctly.")
 
-    # Flattened list of sentence-level word chunks
-    sentence_chunks = []
-    for sen in raw_sentences:
-        sentence_chunks.extend(word_split(sen, char_limit=max_char_limit))
+      splitter = SentenceSplitter(language='en')
+      raw_sentences = splitter.split(text)
 
-    chunks = []
-    temp_str = ""
+      # Flattened list of sentence-level word chunks
+      sentence_chunks = []
+      for sen in raw_sentences:
+          sentence_chunks.extend(word_split(sen, char_limit=max_char_limit))
 
-    for sentence in sentence_chunks:
-        if len(temp_str) + len(sentence) + (1 if temp_str else 0) <= max_char_limit:
-            temp_str += (" " if temp_str else "") + sentence
-        else:
-            chunks.append(temp_str)
-            temp_str = sentence
+      chunks = []
+      temp_str = ""
 
-    if temp_str:
-        chunks.append(temp_str)
+      for sentence in sentence_chunks:
+          if len(temp_str) + len(sentence) + (1 if temp_str else 0) <= max_char_limit:
+              temp_str += (" " if temp_str else "") + sentence
+          else:
+              chunks.append(temp_str)
+              temp_str = sentence
 
-    return chunks
+      if temp_str:
+          chunks.append(temp_str)
 
+      return chunks
+    else:
+      return [text]
 
 
 def clean_text(text):
