@@ -8,7 +8,7 @@
 ![gradio](https://github.com/user-attachments/assets/aec437bc-c684-439f-9d96-f8c62cd188fd)
 
 
-Audio or Video Dubbbing using Chaterbox & Kyutai_STT [not accurate ] <br>
+Audio or Video Dubbbing using Chaterbox & Kyutai_STT [not accurate] <br>
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuralFalconYT/chatterbox-colab/blob/main/SRT_Dubbing.ipynb) <br>
 
 
